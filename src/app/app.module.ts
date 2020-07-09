@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Angular4PaystackModule } from 'angular4-paystack';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +31,7 @@ import { SubscriptionPlansComponent } from './users/subscription-plans/subscript
   imports: [
     BrowserModule,
     AppRoutingModule,
+    Angular4PaystackModule.forRoot('pk_test_0dcfa780bc08adca265572bcfa91019ffa855390'),
 
     FormsModule,
     ReactiveFormsModule,
