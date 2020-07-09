@@ -41,7 +41,19 @@
 
                                   <div class="pt-7">
                                       <a  [routerLink]="['/buy-plan/94c1b0bf-5f81-4e34-ae8f-36786872862b']">
-                                          <button class="btn btn-primary" type="button">Upgrade Now
+                                          <button
+                                             class="btn btn-primary"
+                                              type="button"
+                                              angular4-paystack
+                                              [key]="'pk_test_0dcfa780bc08adca265572bcfa91019ffa855390'"
+                                              [email]="'mailexample@mail.com'"
+                                              [amount]="5000000"
+                                              [ref]="reference"
+                                              [class]="'btn btn-primary'"
+                                              (paymentInit)="paymentInit()"
+                                              (close)="paymentCancel()"
+                                              (callback)="paymentDone($event)"
+                                              >Upgrade Now
                                           </button>
                                       </a>
                                   </div>
