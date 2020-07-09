@@ -5,6 +5,7 @@ import { SignupComponent } from './users/signup/signup.component';
 import { ProfileComponent } from './users/profile/profile.component';
 import { RequestResetComponent } from './users/password/request-reset/request-reset.component';
 import { BuyPlanComponent } from './users/buy-plan/buy-plan.component';
+import { SubscriptionPlansComponent } from './users/subscription-plans/subscription-plans.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -12,7 +13,7 @@ const routes: Routes = [
   {path:'profile',component:ProfileComponent},
   {path:'request-password-reset',component:RequestResetComponent},
   {path:'respond-password-reset',component:RequestResetComponent},
-  //{path:'plans',component:SubscriptionPlansComponent},
+  {path:'plans',component:SubscriptionPlansComponent},
   {path:'buy-plan/:uuid',component:BuyPlanComponent},
 ];
 

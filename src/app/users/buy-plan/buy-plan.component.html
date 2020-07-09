@@ -1,3 +1,65 @@
-<p>
-  buy-plan works!
-</p>
+<div class="container">
+  <!-- Grid -->
+  <div class="row">
+ 
+   <!-- Grid Item -->
+   <div class="col-xl-6" *ngIf="currentPlan !=null">
+ 
+       <!-- Entry Header -->
+       <div class="dt-entry__header">
+ 
+           <!-- Entry Heading -->
+           <div class="dt-entry__heading">
+               <h3 class="dt-entry__title">Buy {{ currentPlan.plan.name }} Package online</h3>
+           </div>
+           <!-- /entry heading -->
+ 
+       </div>
+       <!-- /entry header -->
+ 
+       <!-- Card -->
+       <div class="dt-card">
+ 
+           <!-- Card Body -->
+           <div class="dt-card__body">
+               <form #buyPlanForm=ngForm (ngSubmit)="buyPlan(plan_data)" autocomplete="off" id="purchase_form">
+ 
+                   <h6 class="heading-small text-muted mb-4">User information</h6>
+                   <div class="pl-lg-4">
+                       <div class="form-group">
+                           <label class="form-control-label" for="input-name">Plan</label>
+                     <input type="text" name="name" id="input-firstname" class="form-control"  [(ngModel)]="currentPlan.plan.name"
+                                  required >
+                         
+                       </div>
+                       <div class="form-group">
+                           <label class="form-control-label" for="input-email">Price</label>
+                           <input type="text" name="amount_not_real" [(ngModel)]="currentPlan.plan.amount" id="amount_not_real">
+                       
+                       <input type="text" name="amount" id="amount" [(ngModel)]="currentPlan.plan.amount"
+                                  class="form-control " placeholder="Amount" >
+                                 
+                       
+                         <input type="text" name="plan_id" id="input-email" [(ngModel)]="currentPlan.plan.uuid"
+                                  class="form-control" >
+                       </div>
+                       
+                       <div>
+                           <!-- <img src="{{ url('img/paystack.png') }}" class="img-center offset-3" width="350px"> -->
+                       </div>
+                       <div class="text-center">
+                           <button type="submit" class="btn btn-success mt-4" [disabled]="!buyPlanForm.valid">Buy this Package Now!</button>
+                       </div>
+                   </div>
+               </form>
+           </div>
+           <!-- /card body -->
+ 
+       </div>
+       <!-- /card -->
+ 
+   </div>
+   <!-- /grid item -->
+ </div>
+ 
+ </div>

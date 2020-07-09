@@ -10,6 +10,9 @@ import { ProfileComponent } from './users/profile/profile.component';
 import { BuyPlanComponent } from './users/buy-plan/buy-plan.component';
 import { RequestResetComponent } from './users/password/request-reset/request-reset.component';
 import { RespondResetComponent } from './users/password/respond-reset/respond-reset.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { SubscriptionPlansComponent } from './users/subscription-plans/subscription-plans.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,18 @@ import { RespondResetComponent } from './users/password/respond-reset/respond-re
     ProfileComponent,
     BuyPlanComponent,
     RequestResetComponent,
-    RespondResetComponent
+    RespondResetComponent,
+    SubscriptionPlansComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
