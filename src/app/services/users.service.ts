@@ -7,7 +7,7 @@ import { HttpClient,HttpClientModule } from '@angular/common/http';
 })
 export class UsersService {
   //readonly rootUrl:string = 'http://127.0.0.1:8000/api/';
-  readonly rootUrl:string = ' http://157.245.248.103/zero_clerk_api/public/api';
+  readonly rootUrl:string = ' http://157.245.248.103/zero_clerk_api/public/api/';
   constructor(public http:HttpClient) { }
 
   

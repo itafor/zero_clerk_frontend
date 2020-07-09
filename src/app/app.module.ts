@@ -31,7 +31,7 @@ import { SubscriptionPlansComponent } from './users/subscription-plans/subscript
   imports: [
     BrowserModule,
     AppRoutingModule,
-    Angular4PaystackModule.forRoot('pk_test_0dcfa780bc08adca265572bcfa91019ffa855390'),
+    Angular4PaystackModule.forRoot('pk_test_3796b530257f04cc0c640811d7523ad1e4581241'),
 
     FormsModule,
     ReactiveFormsModule,
