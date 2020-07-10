@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormArray, Validators, FormControl } from '@angular/forms';
 import { UsersService } from 'src/app/services/users.service';
+import { HttpHeaders } from '@angular/common/http';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   errors = null;
+  token = '';
 
   constructor(
     private _fb:FormBuilder,
@@ -20,6 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginFormData();
+    
   }
 
   handleError(error){
@@ -50,12 +53,32 @@ get getLoginForm(){
     this.service.login(email, password)
         .subscribe(
           data => {
+            localStorage.clear();
           localStorage.setItem('usertoken',JSON.stringify(data))
-      console.log(data);
+          this.getProfile();
+          let token = localStorage.getItem('usertoken');
+         console.log(this.service.getToken())
+         
           },
           error => {
             this.handleError(error);
        });
+  }
+
+   header = {
+    headers: new HttpHeaders()
+      .set('Authorization',  `Bearer ${this.service.getToken()}`)
+  }
+
+  getProfile() {
+    this.service.profile()
+      .subscribe(
+        data => {
+          console.log('user profile',data);
+        },
+        error => {
+          console.log(error);
+        });
   }
 
 }

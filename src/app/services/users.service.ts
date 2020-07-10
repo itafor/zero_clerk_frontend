@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpClientModule } from '@angular/common/http';
+import { HttpClient,HttpClientModule, HttpHeaders } from '@angular/common/http';
 
 
 @Injectable({
@@ -20,6 +20,10 @@ export class UsersService {
       password,
     })
     .pipe();
+}
+
+getToken(){
+  return  localStorage.getItem('usertoken');
 }
 
 registerUser(
@@ -52,5 +56,10 @@ transactionDone(
     })
     .pipe();
 }
+
+profile(){
+  return this.http.post(this.rootUrl + 'auth/' + `me`,{})
+}
+
 
 }

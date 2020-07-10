@@ -13,8 +13,9 @@ import { BuyPlanComponent } from './users/buy-plan/buy-plan.component';
 import { RequestResetComponent } from './users/password/request-reset/request-reset.component';
 import { RespondResetComponent } from './users/password/respond-reset/respond-reset.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SubscriptionPlansComponent } from './users/subscription-plans/subscription-plans.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,11 @@ import { SubscriptionPlansComponent } from './users/subscription-plans/subscript
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [HttpClientModule],
+  providers: [HttpClientModule,{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
