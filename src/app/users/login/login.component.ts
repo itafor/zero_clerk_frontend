@@ -56,9 +56,6 @@ get getLoginForm(){
             localStorage.clear();
           localStorage.setItem('usertoken',JSON.stringify(data))
           this.getProfile();
-          let token = localStorage.getItem('usertoken');
-         console.log(this.service.getToken())
-         
           },
           error => {
             this.handleError(error);
